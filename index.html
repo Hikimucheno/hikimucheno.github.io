@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+    <!--AIGC-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,19 +15,19 @@
         }
 
         body {
-            background-color: #f8fafc;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
-            color: #334155;
+            color: #333;
         }
 
         .container {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             width: 100%;
             max-width: 500px;
             padding: 30px;
@@ -39,126 +40,120 @@
 
         .logo-circle {
             display: inline-flex;
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
-            border-radius: 12px;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #6e8efb, #a777e3);
+            border-radius: 50%;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 24px;
+            font-size: 28px;
         }
 
         h1 {
-            color: #1e293b;
+            color: #2d3748;
             margin-bottom: 15px;
             font-weight: 600;
-            font-size: 24px;
+            font-size: 26px;
         }
 
         .description {
-            color: #64748b;
+            color: #4a5568;
             line-height: 1.5;
             margin-bottom: 20px;
             font-size: 16px;
         }
 
-        .url-box {
-            background-color: #f1f5f9;
-            border: 1px solid #e2e8f0;
+        .info-box {
+            background: #f8fafc;
+            border-radius: 10px;
             padding: 20px;
             margin: 20px 0;
             text-align: left;
-            border-radius: 8px;
         }
 
-        .url-item {
+        .info-item {
             margin-bottom: 15px;
             display: flex;
             align-items: flex-start;
         }
 
-        .url-item:last-child {
+        .info-item:last-child {
             margin-bottom: 0;
         }
 
-        .url-icon {
-            color: #4f46e5;
+        .info-icon {
+            color: #6e8efb;
             margin-right: 12px;
             font-size: 16px;
             margin-top: 3px;
         }
 
-        .url-text {
+        .info-text {
             flex: 1;
         }
 
-        .url-label {
+        .info-label {
             display: block;
             font-size: 14px;
-            color: #64748b;
+            color: #718096;
             margin-bottom: 5px;
         }
 
-        .url-value {
-            color: #1e293b;
+        .info-value {
+            color: #2d3748;
             word-break: break-all;
             font-weight: 500;
             font-size: 15px;
         }
 
         .redirect-button {
-            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            background: linear-gradient(to right, #6e8efb, #a777e3);
             color: white;
             border: none;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border-radius: 8px;
             font-size: 16px;
             cursor: pointer;
-            transition: all 0.2s;
-            margin-top: 10px;
+            transition: all 0.3s;
+            margin-top: 15px;
             font-weight: 500;
             width: 100%;
-            box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
         }
 
         .redirect-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(79, 70, 229, 0.4);
-        }
-
-        .redirect-button:active {
-            transform: translateY(0);
+            box-shadow: 0 5px 15px rgba(110, 142, 251, 0.4);
         }
 
         .countdown {
             margin-top: 20px;
-            font-size: 15px;
-            color: #64748b;
+            font-size: 16px;
+            color: #4a5568;
         }
 
         .countdown-number {
             display: inline-block;
-            width: 28px;
-            height: 28px;
-            background-color: #4f46e5;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(to right, #6e8efb, #a777e3);
             color: white;
-            border-radius: 6px;
-            line-height: 28px;
+            border-radius: 8px;
+            line-height: 32px;
             text-align: center;
-            margin: 0 5px;
-            font-weight: 500;
+            margin: 0 6px;
+            font-weight: 600;
         }
 
         .loader {
             display: inline-block;
-            width: 18px;
-            height: 18px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
             border-radius: 50%;
             border-top-color: white;
             animation: spin 1s ease-in-out infinite;
-            margin-right: 8px;
+            margin-right: 10px;
             vertical-align: middle;
         }
 
@@ -166,48 +161,52 @@
             to { transform: rotate(360deg); }
         }
 
-        .error {
-            color: #dc2626;
-            margin: 15px 0;
-            padding: 12px;
-            background-color: #fef2f2;
-            border-radius: 6px;
-            display: none;
-            text-align: left;
-            border-left: 3px solid #dc2626;
-            font-size: 14px;
-        }
-
-        .error i {
-            margin-right: 8px;
-        }
-
         .footer {
             margin-top: 25px;
-            color: #94a3b8;
-            font-size: 13px;
+            color: #a0aec0;
+            font-size: 14px;
         }
 
         .status-check {
             margin: 15px 0;
-            padding: 10px;
-            background-color: #f0f9ff;
-            border-radius: 6px;
+            padding: 12px;
+            background: #ebf8ff;
+            border-radius: 8px;
             font-size: 14px;
-            color: #0369a1;
+            color: #3182ce;
             display: none;
+        }
+
+        .backup-button {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 15px;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 15px;
+            font-weight: 500;
+            width: 100%;
+            display: none;
+        }
+
+        .backup-button:hover {
+            background: #c53030;
+            transform: translateY(-2px);
         }
 
         @media (max-width: 600px) {
             .container {
-                padding: 20px;
+                padding: 25px;
             }
 
             h1 {
-                font-size: 22px;
+                font-size: 24px;
             }
 
-            .url-box {
+            .info-box {
                 padding: 15px;
             }
         }
@@ -217,47 +216,42 @@
     <div class="container">
         <div class="logo">
             <div class="logo-circle">
-                <i class="fas fa-route"></i>
+                <i class="fas fa-link"></i>
             </div>
         </div>
 
         <h1>正在重定向中...</h1>
-        <p class="description">正在处理您的请求，请稍候...</p>
+        <p class="description">请稍候，正在处理您的请求</p>
 
         <div id="status-check" class="status-check">
             <i class="fas fa-sync-alt fa-spin"></i>
             <span>正在优化连接路径...</span>
         </div>
 
-        <div class="url-box">
-            <div class="url-item">
-                <i class="fas fa-link url-icon"></i>
-                <div class="url-text">
-                    <span class="url-label">当前URL</span>
-                    <span class="url-value" id="current-url"></span>
+        <div class="info-box">
+            <div class="info-item">
+                <i class="fas fa-link info-icon"></i>
+                <div class="info-text">
+                    <span class="info-label">当前URL</span>
+                    <span class="info-value" id="current-url"></span>
                 </div>
             </div>
 
-            <div class="url-item">
-                <i class="fas fa-key url-icon"></i>
-                <div class="url-text">
-                    <span class="url-label">提取的参数值</span>
-                    <span class="url-value" id="param-value">正在提取...</span>
+            <div class="info-item">
+                <i class="fas fa-key info-icon"></i>
+                <div class="info-text">
+                    <span class="info-label">提取的参数值</span>
+                    <span class="info-value" id="param-value">正在提取...</span>
                 </div>
             </div>
 
-            <div class="url-item">
-                <i class="fas fa-arrow-right url-icon"></i>
-                <div class="url-text">
-                    <span class="url-label">目标URL</span>
-                    <span class="url-value" id="target-url">正在生成...</span>
+            <div class="info-item">
+                <i class="fas fa-arrow-right info-icon"></i>
+                <div class="info-text">
+                    <span class="info-label">目标URL</span>
+                    <span class="info-value" id="target-url">正在生成...</span>
                 </div>
             </div>
-        </div>
-
-        <div id="error-message" class="error">
-            <i class="fas fa-exclamation-circle"></i>
-            <span>无法从URL中提取参数值，将跳转到首页。</span>
         </div>
 
         <button id="redirect-button" class="redirect-button">
@@ -265,17 +259,22 @@
             正在重定向...
         </button>
 
+        <button id="backup-button" class="backup-button">
+            <i class="fas fa-bolt"></i>
+            立即跳转
+        </button>
+
         <div class="countdown">
             <p>页面将在 <span id="countdown-number" class="countdown-number">3</span> 秒后自动跳转</p>
         </div>
 
         <div class="footer">
-            <p>( C ) HikiMu</p>
+            <p>© HikiMu</p>
         </div>
     </div>
 
     <script>
-function _0x1d54(){const _0x5abc25=['current-url','href','hash','?t=','src','block','/tp/','match','DOMContentLoaded','none','search','57YignfA','126833KJSikM','innerHTML','4863573HBwMhe','http://119.29.227.6','error-message','display','style','446595vFUTlq','1462OuYyvK','立即跳转','566168rekhAX','then','location','8eFzUDw','onload','getTime','addEventListener','onerror','param-value','1015026gBnpec','10cWthwz','https://www.hikimu.com/images/hikimu_logo.png','getElementById','textContent','https://www.hikimu.com','231540WLOIuL'];_0x1d54=function(){return _0x5abc25;};return _0x1d54();}const _0x13514e=_0x4cbc;function _0x4cbc(_0x1cd362,_0xcd9fc){const _0x1d54fc=_0x1d54();return _0x4cbc=function(_0x4cbc31,_0x423cdb){_0x4cbc31=_0x4cbc31-0x15f;let _0x2dd505=_0x1d54fc[_0x4cbc31];return _0x2dd505;},_0x4cbc(_0x1cd362,_0xcd9fc);}(function(_0x55e0d2,_0x2d297e){const _0x298bd6=_0x4cbc,_0x1a43e3=_0x55e0d2();while(!![]){try{const _0x1cf7fb=parseInt(_0x298bd6(0x171))/0x1+-parseInt(_0x298bd6(0x160))/0x2*(-parseInt(_0x298bd6(0x17d))/0x3)+parseInt(_0x298bd6(0x162))/0x4+parseInt(_0x298bd6(0x15f))/0x5+parseInt(_0x298bd6(0x16b))/0x6+-parseInt(_0x298bd6(0x17e))/0x7*(-parseInt(_0x298bd6(0x165))/0x8)+parseInt(_0x298bd6(0x180))/0x9*(-parseInt(_0x298bd6(0x16c))/0xa);if(_0x1cf7fb===_0x2d297e)break;else _0x1a43e3['push'](_0x1a43e3['shift']());}catch(_0x161989){_0x1a43e3['push'](_0x1a43e3['shift']());}}}(_0x1d54,0x1e12f),document[_0x13514e(0x168)](_0x13514e(0x17a),function(){const _0x24f07f=_0x13514e,_0x1321b8=document[_0x24f07f(0x16e)](_0x24f07f(0x172)),_0xbac76=document[_0x24f07f(0x16e)](_0x24f07f(0x16a)),_0x1be3be=document[_0x24f07f(0x16e)]('target-url'),_0x5bd01d=document['getElementById']('countdown-number'),_0x15fead=document[_0x24f07f(0x16e)]('redirect-button'),_0x5f2334=document[_0x24f07f(0x16e)](_0x24f07f(0x182)),_0x4a9d0b=document[_0x24f07f(0x16e)]('status-check'),_0x357af2=window['location'][_0x24f07f(0x173)];_0x1321b8[_0x24f07f(0x16f)]=_0x357af2;let _0x2efeaa=null;const _0x217a75=new URLSearchParams(window['location'][_0x24f07f(0x17c)]);for(let [_0x1262ff,_0x2b8836]of _0x217a75){if(_0x2b8836){_0x2efeaa=_0x2b8836;break;}}if(!_0x2efeaa&&window[_0x24f07f(0x164)][_0x24f07f(0x17c)]){const _0x3fa15d=window[_0x24f07f(0x164)][_0x24f07f(0x17c)][_0x24f07f(0x179)](/^[?&=]*(\d+)$/);_0x3fa15d&&_0x3fa15d[0x1]&&(_0x2efeaa=_0x3fa15d[0x1]);}if(!_0x2efeaa&&window['location'][_0x24f07f(0x174)]){const _0x4a3222=window['location']['hash']['match'](/(\d+)$/);_0x4a3222&&_0x4a3222[0x1]&&(_0x2efeaa=_0x4a3222[0x1]);}_0x4a9d0b[_0x24f07f(0x184)]['display']=_0x24f07f(0x177),_0xc72b41()[_0x24f07f(0x163)](_0xb2f620=>{const _0x278af4=_0x24f07f;let _0x4a633e;_0xb2f620?_0x4a633e=_0x278af4(0x181):_0x4a633e=_0x278af4(0x170);let _0x51cf39;_0x2efeaa?(_0xbac76['textContent']=_0x2efeaa,_0x51cf39=_0x4a633e+_0x278af4(0x178)+_0x2efeaa,_0x1be3be[_0x278af4(0x16f)]=_0x51cf39):(_0xbac76['textContent']='未找到',_0x51cf39=_0x4a633e,_0x1be3be['textContent']=_0x51cf39,_0x5f2334[_0x278af4(0x184)][_0x278af4(0x183)]=_0x278af4(0x177));_0x4a9d0b['style'][_0x278af4(0x183)]=_0x278af4(0x17b);let _0x3b01c8=0x3;const _0x14eabc=setInterval(()=>{const _0xa1f09a=_0x278af4;_0x3b01c8--,_0x5bd01d[_0xa1f09a(0x16f)]=_0x3b01c8,_0x3b01c8<=0x0&&(clearInterval(_0x14eabc),window['location'][_0xa1f09a(0x173)]=_0x51cf39);},0x3e8);_0x15fead[_0x278af4(0x168)]('click',()=>{const _0x5503b3=_0x278af4;clearInterval(_0x14eabc),window['location'][_0x5503b3(0x173)]=_0x51cf39;}),setTimeout(()=>{const _0x3e56ff=_0x278af4;_0x15fead[_0x3e56ff(0x17f)]=_0x3e56ff(0x161);},0x3e8);});function _0xc72b41(){return new Promise(_0x298cbe=>{const _0x271197=_0x4cbc,_0x289a9a=_0x271197(0x16d),_0x274789=0xbb8;let _0x117504;const _0x10e7e0=new Image();_0x10e7e0[_0x271197(0x166)]=function(){clearTimeout(_0x117504),_0x298cbe(![]);},_0x10e7e0[_0x271197(0x169)]=function(){clearTimeout(_0x117504),_0x298cbe(ture);},_0x117504=setTimeout(()=>{_0x298cbe(!![]);},_0x274789),_0x10e7e0[_0x271197(0x176)]=_0x289a9a+_0x271197(0x175)+new Date()[_0x271197(0x167)]();});}}));
+function _0x5dc0(_0x5707c2,_0x2f11c1){const _0x165887=_0x1658();return _0x5dc0=function(_0x5dc0a1,_0x5f3632){_0x5dc0a1=_0x5dc0a1-0x1b7;let _0x3e28ea=_0x165887[_0x5dc0a1];return _0x3e28ea;},_0x5dc0(_0x5707c2,_0x2f11c1);}const _0x474395=_0x5dc0;(function(_0x231656,_0x5dcd10){const _0x425ca2=_0x5dc0,_0x3e2737=_0x231656();while(!![]){try{const _0x250a41=parseInt(_0x425ca2(0x1d1))/0x1+parseInt(_0x425ca2(0x1dd))/0x2+-parseInt(_0x425ca2(0x1c7))/0x3+-parseInt(_0x425ca2(0x1da))/0x4*(parseInt(_0x425ca2(0x1be))/0x5)+-parseInt(_0x425ca2(0x1d5))/0x6*(parseInt(_0x425ca2(0x1c2))/0x7)+-parseInt(_0x425ca2(0x1d6))/0x8+parseInt(_0x425ca2(0x1c4))/0x9*(parseInt(_0x425ca2(0x1c1))/0xa);if(_0x250a41===_0x5dcd10)break;else _0x3e2737['push'](_0x3e2737['shift']());}catch(_0x4f1889){_0x3e2737['push'](_0x3e2737['shift']());}}}(_0x1658,0x5c55a),document[_0x474395(0x1cd)](_0x474395(0x1cb),function(){const _0x13771e=_0x474395,_0x3bae1b=document[_0x13771e(0x1ba)](_0x13771e(0x1dc)),_0x18bc22=document[_0x13771e(0x1ba)]('param-value'),_0x340dcc=document[_0x13771e(0x1ba)](_0x13771e(0x1c6)),_0x4ef3a1=document['getElementById'](_0x13771e(0x1d0)),_0x5e5413=document['getElementById'](_0x13771e(0x1bc)),_0x3d2fb8=document['getElementById'](_0x13771e(0x1b9)),_0x27d251=document[_0x13771e(0x1ba)](_0x13771e(0x1c9)),_0x41b996=window[_0x13771e(0x1cf)][_0x13771e(0x1bd)];_0x3bae1b[_0x13771e(0x1bb)]=_0x41b996;let _0x490bdd=null;const _0x528318=new URLSearchParams(window[_0x13771e(0x1cf)][_0x13771e(0x1ce)]);for(let [_0x249130,_0x46d3f9]of _0x528318){if(_0x46d3f9){_0x490bdd=_0x46d3f9;break;}}if(!_0x490bdd&&window[_0x13771e(0x1cf)]['search']){const _0x3953cf=window[_0x13771e(0x1cf)][_0x13771e(0x1ce)][_0x13771e(0x1d3)](/^[?&=]*(\d+)$/);_0x3953cf&&_0x3953cf[0x1]&&(_0x490bdd=_0x3953cf[0x1]);}if(!_0x490bdd&&window['location'][_0x13771e(0x1d9)]){const _0x7607e=window['location'][_0x13771e(0x1d9)][_0x13771e(0x1d3)](/(\d+)$/);_0x7607e&&_0x7607e[0x1]&&(_0x490bdd=_0x7607e[0x1]);}_0x27d251[_0x13771e(0x1d2)][_0x13771e(0x1c8)]=_0x13771e(0x1d8);let _0x3f6d76=setTimeout(()=>{const _0xb0c61f=_0x13771e;_0x3d2fb8[_0xb0c61f(0x1d2)]['display']=_0xb0c61f(0x1d8);},0xbb8);_0x323532()['then'](_0x162940=>{const _0x189fac=_0x13771e;clearTimeout(_0x3f6d76);let _0x102c3d;_0x162940?_0x102c3d=_0x189fac(0x1cc):_0x102c3d=_0x189fac(0x1b8);let _0x39da68;_0x490bdd?(_0x18bc22[_0x189fac(0x1bb)]=_0x490bdd,_0x39da68=_0x102c3d+_0x189fac(0x1db)+_0x490bdd,_0x340dcc[_0x189fac(0x1bb)]=_0x39da68):(_0x18bc22[_0x189fac(0x1bb)]=_0x189fac(0x1d4),_0x39da68=_0x102c3d,_0x340dcc[_0x189fac(0x1bb)]=_0x39da68);_0x27d251[_0x189fac(0x1d2)][_0x189fac(0x1c8)]=_0x189fac(0x1ca);let _0x5db376=0x3;const _0x17bed9=setInterval(()=>{const _0x3bf51d=_0x189fac;_0x5db376--,_0x4ef3a1[_0x3bf51d(0x1bb)]=_0x5db376,_0x5db376<=0x0&&(clearInterval(_0x17bed9),window[_0x3bf51d(0x1cf)][_0x3bf51d(0x1bd)]=_0x39da68);},0x3e8);_0x5e5413['addEventListener'](_0x189fac(0x1d7),()=>{const _0x2cdfe8=_0x189fac;clearInterval(_0x17bed9),window[_0x2cdfe8(0x1cf)][_0x2cdfe8(0x1bd)]=_0x39da68;}),setTimeout(()=>{const _0x43fe1a=_0x189fac;_0x5e5413['innerHTML']=_0x43fe1a(0x1c5);},0x3e8);}),_0x3d2fb8[_0x13771e(0x1cd)]('click',()=>{const _0x4d8cce=_0x13771e;let _0x232efe;_0x490bdd?_0x232efe='http://119.29.227.6/tp/'+_0x490bdd:_0x232efe=_0x4d8cce(0x1cc),window['location'][_0x4d8cce(0x1bd)]=_0x232efe;});function _0x323532(){return new Promise(_0x438aad=>{const _0x2259be=_0x5dc0,_0x195bcd='https://www.hikimu.com/images/hikimu_logo.png',_0x5c6ab3=0xbb8;let _0x533750;const _0x31cf6d=new Image();_0x31cf6d['onload']=function(){clearTimeout(_0x533750),_0x438aad(![]);},_0x31cf6d[_0x2259be(0x1c0)]=function(){clearTimeout(_0x533750),_0x438aad(!![]);},_0x533750=setTimeout(()=>{_0x438aad(!![]);},_0x5c6ab3),_0x31cf6d[_0x2259be(0x1b7)]=_0x195bcd+_0x2259be(0x1c3)+new Date()[_0x2259be(0x1bf)]();});}}));function _0x1658(){const _0x9a5bc2=['none','DOMContentLoaded','http://119.29.227.6','addEventListener','search','location','countdown-number','502645eGvuvD','style','match','未找到','6MNeEJs','1674728yqogsp','click','block','hash','820PIRmzl','/tp/','current-url','1454562VfrIpI','src','https://www.hikimu.com','backup-button','getElementById','textContent','redirect-button','href','18310TgaFWa','getTime','onerror','810890RMXeSa','1834882SJYjRR','?t=','63whvOkG','立即跳转','target-url','591510bpVMja','display','status-check'];_0x1658=function(){return _0x9a5bc2;};return _0x1658();}
     </script>
 </body>
 </html>
