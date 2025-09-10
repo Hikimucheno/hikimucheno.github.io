@@ -1,16 +1,339 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
+    <!--AI写的，用于重定向hikimu.com，别介意-->
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=https://www.hikimu.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>重定向中...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 20px;
+        }
+
+        .logo-circle {
+            display: inline-flex;
+            width: 60px;
+            height: 60px;
+            background-color: #4a6cf7;
+            border-radius: 50%;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        h1 {
+            color: #2d3748;
+            margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 24px;
+        }
+
+        .description {
+            color: #718096;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .url-box {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 16px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 6px;
+        }
+
+        .url-item {
+            margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .url-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .url-icon {
+            color: #4a6cf7;
+            margin-right: 10px;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .url-text {
+            flex: 1;
+        }
+
+        .url-label {
+            display: block;
+            font-size: 14px;
+            color: #718096;
+            margin-bottom: 4px;
+        }
+
+        .url-value {
+            color: #2d3748;
+            word-break: break-all;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        .redirect-button {
+            background-color: #4a6cf7;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            margin-top: 10px;
+            font-weight: 500;
+            width: 100%;
+        }
+
+        .redirect-button:hover {
+            background-color: #3b5bd9;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            font-size: 15px;
+            color: #718096;
+        }
+
+        .countdown-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background-color: #4a6cf7;
+            color: white;
+            border-radius: 6px;
+            line-height: 28px;
+            text-align: center;
+            margin: 0 5px;
+            font-weight: 500;
+        }
+
+        .loader {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error {
+            color: #e53e3e;
+            margin: 15px 0;
+            padding: 12px;
+            background-color: #fef5f5;
+            border-radius: 6px;
+            display: none;
+            text-align: left;
+            border-left: 3px solid #e53e3e;
+            font-size: 14px;
+        }
+
+        .error i {
+            margin-right: 8px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #a0aec0;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 22px;
+            }
+
+            .url-box {
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <div class="logo">
+            <div class="logo-circle">
+                <i class="fas fa-link"></i>
+            </div>
+        </div>
+
+        <h1>重定向中...</h1>
+        <p class="description">正在处理您的请求，请稍候...</p>
+
+        <div class="url-box">
+            <div class="url-item">
+                <i class="fas fa-link url-icon"></i>
+                <div class="url-text">
+                    <span class="url-label">当前URL</span>
+                    <span class="url-value" id="current-url"></span>
+                </div>
+            </div>
+
+            <div class="url-item">
+                <i class="fas fa-key url-icon"></i>
+                <div class="url-text">
+                    <span class="url-label">提取的参数值</span>
+                    <span class="url-value" id="param-value">正在提取...</span>
+                </div>
+            </div>
+
+            <div class="url-item">
+                <i class="fas fa-arrow-right url-icon"></i>
+                <div class="url-text">
+                    <span class="url-label">目标URL</span>
+                    <span class="url-value" id="target-url">正在生成...</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="error-message" class="error">
+            <i class="fas fa-exclamation-circle"></i>
+            <span>无法从URL中提取参数值，即将跳转到首页。</span>
+        </div>
+
+        <button id="redirect-button" class="redirect-button">
+            <span class="loader"></span>
+            正在重定向...
+        </button>
+
+        <div class="countdown">
+            <p>页面将在 <span id="countdown-number" class="countdown-number">3</span> 秒后自动跳转</p>
+        </div>
+
+        <div class="footer">
+            <p>若无法打开，请多刷新几次...</p>
+        </div>
+    </div>
+
     <script>
-        window.location.href = "https://www.hikimu.com";
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUrlElement = document.getElementById('current-url');
+            const paramValueElement = document.getElementById('param-value');
+            const targetUrlElement = document.getElementById('target-url');
+            const countdownElement = document.getElementById('countdown-number');
+            const redirectButton = document.getElementById('redirect-button');
+            const errorElement = document.getElementById('error-message');
+
+            // 获取当前URL
+            const currentUrl = window.location.href;
+            currentUrlElement.textContent = currentUrl;
+
+            // 尝试从URL中提取参数值
+            let paramValue = null;
+
+            // 方法1: 使用URLSearchParams (适用于标准查询参数，如 ?id=253)
+            const urlParams = new URLSearchParams(window.location.search);
+            for (let [key, value] of urlParams) {
+                if (value) {
+                    paramValue = value;
+                    break;
+                }
+            }
+
+            // 方法2: 如果上面没找到，尝试提取类似 "?=253" 这样的参数
+            if (!paramValue && window.location.search) {
+                const match = window.location.search.match(/^[?&=]*(\d+)$/);
+                if (match && match[1]) {
+                    paramValue = match[1];
+                }
+            }
+
+            // 方法3: 如果还是没找到，尝试从hash中提取
+            if (!paramValue && window.location.hash) {
+                const match = window.location.hash.match(/(\d+)$/);
+                if (match && match[1]) {
+                    paramValue = match[1];
+                }
+            }
+
+            let targetUrl;
+
+            if (paramValue) {
+                paramValueElement.textContent = paramValue;
+
+                // 构建目标URL
+                targetUrl = `https://www.hikimu.com/tp/${paramValue}`;
+                targetUrlElement.textContent = targetUrl;
+            } else {
+                // 没有找到参数值，跳转到首页
+                paramValueElement.textContent = '未找到';
+                targetUrl = 'https://www.hikimu.com';
+                targetUrlElement.textContent = targetUrl;
+                errorElement.style.display = 'block';
+            }
+
+            // 设置倒计时并重定向
+            let countdown = 3;
+            const countdownInterval = setInterval(() => {
+                countdown--;
+                countdownElement.textContent = countdown;
+
+                if (countdown <= 0) {
+                    clearInterval(countdownInterval);
+                    window.location.href = targetUrl;
+                }
+            }, 1000);
+
+            // 点击按钮立即重定向
+            redirectButton.addEventListener('click', () => {
+                clearInterval(countdownInterval);
+                window.location.href = targetUrl;
+            });
+
+            // 更新按钮文本
+            setTimeout(() => {
+                redirectButton.innerHTML = '立即跳转';
+            }, 1000);
+        });
     </script>
-    <p>如果没有自动重定向，请按照<a href="https://www.hikimu.com">链接</a>到新位置</p>
 </body>
-
 </html>
-
